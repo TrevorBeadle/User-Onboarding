@@ -15,13 +15,39 @@ export default function Form(props) {
   };
 
   return (
-    <form classname="container" onSumbit={onSubmit}>
+    <form className="container" onSubmit={onSubmit}>
       <label htmlFor="name">
         Name
         <input
           type="text"
           name="name"
           value={values.name}
+          onChange={onChange}
+        />
+      </label>
+      <label htmlFor="email">
+        Email
+        <input
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={onChange}
+        />
+      </label>
+      <label htmlFor="password">
+        Password
+        <input
+          type="password"
+          name="password"
+          value={values.password}
+          onChange={onChange}
+        />
+      </label>
+      <label htmlFor="terms">
+        <input
+          type="checkbox"
+          name="terms"
+          value={values.terms}
           onChange={onChange}
         />
       </label>
