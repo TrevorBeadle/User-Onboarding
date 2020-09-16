@@ -17,6 +17,7 @@ function App() {
       name: formState.name.trim(),
       email: formState.email.trim(),
       password: formState.password.trim(),
+      terms: formState.terms,
     };
   };
 

@@ -9,6 +9,11 @@ export default function Form(props) {
     change(name, valueUsed);
   };
 
+  const onSubmit = e => {
+    e.preventDefault();
+    submit();
+  };
+
   return (
     <form classname="container" onSumbit={onSubmit}>
       <label htmlFor="name">
