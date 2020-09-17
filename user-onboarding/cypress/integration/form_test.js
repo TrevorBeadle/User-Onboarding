@@ -43,10 +43,7 @@ describe("Users app", () => {
   });
 
   it("Check if user can check terms box", () => {
-    checkbox()
-      .should("have.value", "false")
-      .click()
-      .should("have.value", "true");
+    checkbox().should("not.be.checked").click().should("be.checked");
   });
 
   it("Check if button is enabled after form completed", () => {
@@ -68,5 +65,20 @@ describe("Users app", () => {
     checkbox().click();
     button().click();
     cy.contains("Trevor Beadle").should("exist");
+  });
+
+  it("Check for email form validation", () => {
+    emailInput().type("trevor");
+    cy.contains("Must be a valid email address").should("exist");
+  });
+
+  it("Check for check box after submit", () => {
+    firstNameInput().type("Trevor");
+    lastNameInput().type("Beadle");
+    emailInput().type("trevor@beadle.com");
+    passwordInput().type("password");
+    checkbox().click();
+    button().click();
+    checkbox().should("not.be.checked");
   });
 });
