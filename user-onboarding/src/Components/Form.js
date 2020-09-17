@@ -16,49 +16,69 @@ export default function Form(props) {
 
   return (
     <form className="container" onSubmit={onSubmit}>
-      <h2>Sign Up!</h2>
-      <button disabled={disabled}>Submit</button>
-      <div className="errors">
-        <div className="error">{errors.username}</div>
-        <div className="error">{errors.email}</div>
-        <div className="error">{errors.password}</div>
-        <div className="error">{errors.terms}</div>
+      <div className="form-group submit">
+        <h2>Sign Up!</h2>
+        <button disabled={disabled}>Submit</button>
+
+        <div className="errors">
+          <div className="error">{errors.first_name}</div>
+          <div className="error">{errors.last_name}</div>
+          <div className="error">{errors.email}</div>
+          <div className="error">{errors.password}</div>
+          <div className="error">{errors.terms}</div>
+        </div>
       </div>
-      <label htmlFor="username">
-        UserName
-        <input
-          type="text"
-          name="username"
-          value={values.username}
-          onChange={onChange}
-        />
-      </label>
-      <label htmlFor="email">
-        Email
-        <input
-          type="email"
-          name="email"
-          value={values.email}
-          onChange={onChange}
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input
-          type="password"
-          name="password"
-          value={values.password}
-          onChange={onChange}
-        />
-      </label>
-      <label htmlFor="terms">
-        <input
-          type="checkbox"
-          name="terms"
-          value={values.terms}
-          onChange={onChange}
-        />
-      </label>
+
+      <div className="form-group inputs">
+        <label htmlFor="first_name">
+          First Name
+          <input
+            type="text"
+            name="first_name"
+            value={values.first_name}
+            onChange={onChange}
+          />
+        </label>
+        <label htmlFor="last_name">
+          Last Name
+          <input
+            type="text"
+            name="last_name"
+            value={values.last_name}
+            onChange={onChange}
+          />
+        </label>
+        <label htmlFor="email">
+          Email
+          <input
+            type="email"
+            name="email"
+            value={values.email}
+            onChange={onChange}
+          />
+        </label>
+        <label htmlFor="password">
+          Password
+          <input
+            type="password"
+            name="password"
+            value={values.password}
+            onChange={onChange}
+          />
+        </label>
+      </div>
+
+      <div className="form-group checkboxes">
+        <label htmlFor="terms">
+          Do you agree to the terms and conditions?
+          <input
+            type="checkbox"
+            name="terms"
+            value={values.terms}
+            onChange={onChange}
+          />
+        </label>
+      </div>
     </form>
   );
 }

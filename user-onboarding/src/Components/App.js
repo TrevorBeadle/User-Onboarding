@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import Form from "./Form";
 import axios from "axios";
 import * as yup from "yup";
 import schema from "../Validation/schema";
+import User from "./User";
+import "./App.css";
 
-const initialForm = { username: "", email: "", password: "", terms: false };
-const initialError = { username: "", email: "", password: "", terms: "" };
+const initialForm = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  terms: false,
+};
+const initialError = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  terms: "",
+};
 
 function App() {
   // declare initial state
@@ -46,7 +59,8 @@ function App() {
   // submit function
   const submit = () => {
     const newUser = {
-      username: formState.username.trim(),
+      first_name: formState.first_name.trim(),
+      last_name: formState.last_name.trim(),
       email: formState.email.trim(),
       password: formState.password.trim(),
       terms: formState.terms,
@@ -88,6 +102,9 @@ function App() {
         disabled={disabled}
         errors={errorState}
       />
+      {users.map(user => {
+        return <User details={user} />;
+      })}
     </div>
   );
 }
