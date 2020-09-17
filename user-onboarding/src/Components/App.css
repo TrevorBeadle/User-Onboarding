@@ -29,6 +29,13 @@ body {
     align-items: flex-start;
 }
 
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 a {
     font-size: 0.75em;
 }
